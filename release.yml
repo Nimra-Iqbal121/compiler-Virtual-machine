@@ -1,0 +1,28 @@
+name: release
+
+# Push a tag such as  v3.1.0  and this builds a Windows .exe and attaches it to a GitHub Release.
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  windows-exe:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyinstaller
+      - name: Build the app
+        run: pyinstaller --noconfirm --windowed --name MiniLang --add-data "examples;examples" main.py
+      - name: Zip it
+        run: Compress-Archive -Path dist/MiniLang -DestinationPath MiniLang-windows.zip
+      - name: Publish the release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: MiniLang-windows.zip
+          generate_release_notes: true

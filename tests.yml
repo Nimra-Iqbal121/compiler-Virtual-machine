@@ -1,0 +1,30 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  unit-tests:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ["3.9", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Run the compiler / VM test suite
+        run: python -m unittest discover -s tests -v
+
+  gui-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Tk and a virtual display
+        run: sudo apt-get update && sudo apt-get install -y python3-tk xvfb
+      - name: Open the real GUI and drive every example through it
+        run: xvfb-run -a python3 tests/gui_smoke.py
