@@ -1,3 +1,4 @@
+<img width="1365" height="761" alt="image" src="https://github.com/user-attachments/assets/aaeac63b-994f-4e27-b8a1-aa16f41ee3d3" />
 # MiniLang – Multi-Language Compiler & Stack-Based Virtual Machine
 
 A complete compiler-construction project in **pure Python** (no parser generators, no
@@ -29,7 +30,7 @@ Requires **Python 3.8+** (Tkinter ships with the Windows/macOS installers from p
 on Debian/Ubuntu: `sudo apt install python3-tk`). Nothing else to install.
 
 ```bash
-git clone https://github.com/<your-username>/<repo-name>.git
+git clone https://github.com/Nimra-Iqbal121/compiler-Virtual-machine.git
 cd <repo-name>
 python main.py                           # open the GUI
 ```
