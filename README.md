@@ -1,4 +1,4 @@
-<img width="1365" height="761" alt="image" src="https://github.com/user-attachments/assets/aaeac63b-994f-4e27-b8a1-aa16f41ee3d3" />
+
 # MiniLang – Multi-Language Compiler & Stack-Based Virtual Machine
 
 A complete compiler-construction project in **pure Python** (no parser generators, no
