@@ -1,0 +1,11 @@
+let result = 10 + 5;
+let difference = 20 - 5;
+let product = 4 * 5;
+let division = 20 / 4;
+print(result);
+print(difference);
+print(product);
+print(division);
+print((2 + 3) * 4 - 6 / 4);
+print(-(3 + 4));
+print(7 / 2);
